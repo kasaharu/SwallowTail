@@ -25,6 +25,9 @@ class LinebotController < ApplicationController
             message['text'] = fetch_weather
           when 'アニメ一覧'
             message['text'] = fetch_anime_now
+          when 'こんにちは'
+          else
+            return
           end
           response = client.reply_message(event['replyToken'], message)
           p response.body
