@@ -23,12 +23,9 @@ class LinebotController < ApplicationController
           case event['message']['text']
           when '天気'
             message['text'] = fetch_weather
-            response = client.reply_message(event['replyToken'], message)
-            p response.body
-          else
-            response = client.reply_message(event['replyToken'], message)
-            p response.body
           end
+          response = client.reply_message(event['replyToken'], message)
+          p response.body
         end
       end
     end
