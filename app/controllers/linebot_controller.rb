@@ -48,21 +48,11 @@ class LinebotController < ApplicationController
   end
 
   def fetch_anime_now
-    uri = URI.parse("https://api.annict.com/v1/works?fields=title&per_page=50&filter_season=2017-winter&sort_watchers_count=desc&access_token=#{ENV["ANNICT_ACCESS_TOKEN"]}")
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-    res = http.start {
-      http.get(uri.request_uri)
-    }
-    if res.code == '200'
-      result = JSON.parse(res.body)
-      anime_list = ''
-      result['works'].each do |item|
-        anime_list += "#{item['title']} \n"
-      end
-      return anime_list
+    response = Annict.fetch
+    if response.code == '200'
+      return Annict.parse_msg(response.body)
     else
-      return "アニメ情報の取得に失敗しました #{res.code} #{res.message}"
+      return Annict.error_msg(response)
     end
   end
 
