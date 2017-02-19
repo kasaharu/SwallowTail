@@ -20,6 +20,11 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
+          if event['message']['text'].include?("とは")
+            target_word = event['message']['text'].sub(/とは/, "")
+            search_word(target_word)
+            return
+          end
           case event['message']['text']
           when '天気'
             message['text'] = fetch_weather
@@ -54,6 +59,20 @@ class LinebotController < ApplicationController
       return Annict.parse_msg(response.body)
     else
       return Annict.error_msg(response)
+    end
+  end
+
+  def search_word(target_word)
+    escaped_uri = URI.escape("http://search.hatena.ne.jp/keyword?word=#{target_word}&mode=rss&ie=utf8&page=1")
+    uri = URI.parse(escaped_uri)
+    http = Net::HTTP.new(uri.host, uri.port)
+    response = http.start {
+      http.get(uri.request_uri)
+    }
+    if response.code == '200'
+      puts response.body
+    else
+      puts 'ERROR'
     end
   end
 
