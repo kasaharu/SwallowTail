@@ -1,11 +1,7 @@
 class Annict < ApplicationRecord
   def self.fetch(target_season)
-    uri = URI.parse("https://api.annict.com/v1/works?fields=title&per_page=50&filter_season=#{target_season}&sort_watchers_count=desc&access_token=#{ENV["ANNICT_ACCESS_TOKEN"]}")
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-    return http.start {
-      http.get(uri.request_uri)
-    }
+    uri_path = "https://api.annict.com/v1/works?fields=title&per_page=50&filter_season=#{target_season}&sort_watchers_count=desc&access_token=#{ENV["ANNICT_ACCESS_TOKEN"]}"
+    return NetUtil.http_request(uri_path, true)
   end
 
   def self.parse_msg(body)

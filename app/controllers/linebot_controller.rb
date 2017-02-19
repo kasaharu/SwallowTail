@@ -64,12 +64,9 @@ class LinebotController < ApplicationController
   end
 
   def search_word(target_word)
-    escaped_uri = URI.escape("http://search.hatena.ne.jp/keyword?word=#{target_word}&mode=rss&ie=utf8&page=1")
-    uri = URI.parse(escaped_uri)
-    http = Net::HTTP.new(uri.host, uri.port)
-    response = http.start {
-      http.get(uri.request_uri)
-    }
+    uri_path = "http://search.hatena.ne.jp/keyword?word=#{target_word}&mode=rss&ie=utf8&page=1"
+    response = NetUtil.http_request(uri_path, false)
+
     if response.code == '200'
       doc = REXML::Document.new(response.body)
       result = ''

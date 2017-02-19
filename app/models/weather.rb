@@ -1,10 +1,7 @@
 class Weather < ApplicationRecord
   def self.fetch
-    uri = URI.parse('http://weather.livedoor.com/forecast/webservice/json/v1?city=130010')
-    http = Net::HTTP.new(uri.host, uri.port)
-    return http.start {
-      http.get(uri.request_uri)
-    }
+    uri_path = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010'
+    return NetUtil.http_request(uri_path, false)
   end
 
   def self.parse_msg(body)
