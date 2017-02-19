@@ -24,7 +24,7 @@ class LinebotController < ApplicationController
           when '天気'
             message['text'] = fetch_weather
           when 'アニメ一覧'
-            target_season = Annict.detect_target_season
+            target_season = DateUtil.detect_target_season
             message['text'] = fetch_anime(target_season)
           when 'こんにちは'
               message['text'] = greet(client, event['source']['userId'])
