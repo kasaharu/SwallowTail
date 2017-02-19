@@ -64,17 +64,12 @@ class LinebotController < ApplicationController
   end
 
   def search_word(target_word)
-    uri_path = "http://search.hatena.ne.jp/keyword?word=#{target_word}&mode=rss&ie=utf8&page=1"
+    uri_path = "http://wikipedia.simpleapi.net/api?keyword=#{target_word}&output=json"
     response = NetUtil.http_request(uri_path, false)
-
     if response.code == '200'
-      doc = REXML::Document.new(response.body)
-      result = ''
-      doc.each_element("//rdf:RDF/item/description") do |elm|
-        result += "-----\n"
-        result += "#{elm.text}\n"
-      end
-      return result
+      content = JSON.parse(response.body)
+      result  = "【#{ content[0]['title']}】\n"
+      result += content[0]['body']
     else
       puts 'ERROR'
     end
