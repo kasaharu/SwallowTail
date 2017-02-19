@@ -9,8 +9,8 @@ class Weather < ApplicationRecord
 
   def self.parse_msg(body)
     result = JSON.parse(body)
-    puts result['title']
-    return result['title'] + "\n\n" + result['description']['text']
+    description = result['description']['text'].split((/\s*【東京地方】\s*/))
+    return result['title'] + "\n\n" + description[1]
   end
 
   def self.error_msg(res)
