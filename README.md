@@ -1,24 +1,22 @@
-# README
+# SwallowTail
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* 個人用の LINE Bot を動かすためのリポジトリ
+* Heroku で動かすことを前提としている
 
-Things you may want to cover:
+* 起動手順
 
-* Ruby version
+```
+$ git clone git@github.com:kasaharu/SwallowTail.git
+$ cd SwallowTail/
+$ bundle install
+$ rails s
+```
 
-* System dependencies
+* Heroku に設定が必要な config
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+$ heroku config:set SECRET_KEY_BASE=`rake secret`
+$ heroku config:set LINE_CHANNEL_TOKEN='xxx’
+$ heroku config:set LINE_CHANNEL_SECRET=’xxx’
+$ heroku config:set ANNICT_ACCESS_TOKEN='xxx’
+```
