@@ -7,13 +7,21 @@ class LinebotController < ApplicationController
       text: 'hello, LINE bot'
     }
     client = Line::Bot::Client.new { |config|
-        config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
-        config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+      config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
+      config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
     }
 
-    events = client.parse_events_from(request.body.read)
+    puts events = client.parse_events_from(request.body.read)
 
-    response = client.reply_message(events[0]['replyToken'], message)
-    p response
+    events.each do |event|
+      case event
+      when Line::Bot::Event::Message
+        case event.type
+        when Line::Bot::Event::MessageType::Text
+          response = client.reply_message(event['replyToken'], message)
+          p response.body
+        end
+      end
+    end
   end
 end
