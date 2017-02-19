@@ -23,6 +23,8 @@ class LinebotController < ApplicationController
           case event['message']['text']
           when '天気'
             message['text'] = fetch_weather
+          when 'アニメ一覧'
+            message['text'] = fetch_anime_now
           end
           response = client.reply_message(event['replyToken'], message)
           p response.body
@@ -46,4 +48,25 @@ class LinebotController < ApplicationController
       return "天気の取得に失敗しました #{res.code} #{res.message}"
     end
   end
+
+  def fetch_anime_now
+    uri = URI.parse("https://api.annict.com/v1/works?fields=title&per_page=50&filter_season=2017-winter&sort_watchers_count=desc&access_token=#{ENV["ANNICT_ACCESS_TOKEN"]}")
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    res = http.start {
+      http.get(uri.request_uri)
+    }
+    if res.code == '200'
+      result = JSON.parse(res.body)
+      anime_list = ''
+      result['works'].each do |item|
+        anime_list += "#{item['title']} \n"
+      end
+      return anime_list
+    else
+      return "アニメ情報の取得に失敗しました #{res.code} #{res.message}"
+    end
+  end
+
+
 end
