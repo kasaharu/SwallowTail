@@ -37,18 +37,12 @@ class LinebotController < ApplicationController
   end
 
   def fetch_weather
-    uri = URI.parse('http://weather.livedoor.com/forecast/webservice/json/v1?city=130010')
-    http = Net::HTTP.new(uri.host, uri.port)
-    res = http.start {
-      http.get(uri.request_uri)
-    }
-    if res.code == '200'
-      result = JSON.parse(res.body)
-      puts result['title']
-      puts result['description']['text']
-      return result['title'] + "\n\n" + result['description']['text']
+    response = Weather.fetch
+
+    if response.code == '200'
+      return Weather.parse_msg(response.body)
     else
-      return "天気の取得に失敗しました #{res.code} #{res.message}"
+      return Weather.error_msg(response)
     end
   end
 
