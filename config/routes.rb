@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/show'
 
+  get 'keyword_replies/index'
+
   post '/callback', to: 'linebot#callback'
 end
