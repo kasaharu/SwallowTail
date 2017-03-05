@@ -1,2 +1,7 @@
 <h1>KeywordReplies#index</h1>
-<p>Find me in app/views/keyword_replies/index.html.erb</p>
+
+<% @keyword_replies.each do |keyword_reply| %>
+  <%= keyword_reply.keyword %>
+  <%= keyword_reply.reply_type %>
+  <%= keyword_reply.reply_word %>
+<% end %>
