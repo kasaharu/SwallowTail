@@ -1,0 +1,2 @@
+class KeywordReply < ApplicationRecord
+end
