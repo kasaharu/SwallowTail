@@ -2,3 +2,4 @@
 
 <%= react_component('KeywordReplyTable', keywordReplyList: [@keyword_reply]) %>
 <%= link_to 'キーワード応答一覧', keyword_replies_path %>
+<%= link_to 'Destroy', @keyword_reply, method: :delete, data: { confirm: 'Are you sure?' } %>

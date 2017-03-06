@@ -25,6 +25,15 @@ class KeywordRepliesController < ApplicationController
     end
   end
 
+  def destroy
+    @keyword_reply = KeywordReply.find(params[:id])
+    @keyword_reply.destroy
+    respond_to do |format|
+      format.html { redirect_to keyword_replies_url, notice: 'KeywordReply was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
   def keyword_reply_params
     params.require(:keyword_reply).permit(:keyword, :reply_type, :reply_word)
