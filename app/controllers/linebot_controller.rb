@@ -23,7 +23,10 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          if event['message']['text'].include?("とは")
+          keyword_reply = KeywordReply.fetch(event['message']['text'])
+          if !keyword_reply.nil?
+            message['text'] = keyword_reply.reply_word
+          elsif event['message']['text'].include?("とは")
             target_word = event['message']['text'].sub(/とは/, "")
             message['text'] = search_word(target_word)
           else
