@@ -8,12 +8,12 @@
 
   <div class="field">
     <%= f.label :reply_type %>
-    <%= f.text_field :reply_type %>
+    <%= f.select :reply_type, [['text', 'text']] %>
   </div>
 
   <div class="field">
     <%= f.label :reply_word %>
-    <%= f.text_field :reply_word %>
+    <%= f.text_field :reply_word%>
   </div>
 
   <div class="actions">
