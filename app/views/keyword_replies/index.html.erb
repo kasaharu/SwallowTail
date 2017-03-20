@@ -1,9 +1,10 @@
 <h1>KeywordReplies#index</h1>
 
-<% @keyword_replies.each do |keyword_reply| %>
-  <%= keyword_reply.keyword %>
-  <%= keyword_reply.reply_type %>
-  <%= keyword_reply.reply_word %>
-<% end %>
+<script>
+  var keyword_replies = <%= raw @keyword_replies.to_json %>
+</script>
+
+<div id="keyword_reply_table"></div>
+<%= javascript_include_tag "webpack/keyword_reply_table" %>
 
 <%= link_to '新規キーワード追加', new_keyword_reply_path %>
