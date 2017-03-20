@@ -1,3 +1,7 @@
+# Client file
+client/node_modules
+app/assets/javascripts/webpack
+
 *.rbc
 capybara-*.html
 .rspec
