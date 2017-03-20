@@ -1,8 +1,10 @@
 module.exports = {
-  entry: { app: './src/index.js' },
+  entry: {
+    keyword_reply_table: './src/keyword_reply_table.js',
+  },
   output: {
     path: '../app/assets/javascripts/webpack',
-    filename: 'app.js',
+    filename: '[name].js',
   },
   module: {
     loaders: [
