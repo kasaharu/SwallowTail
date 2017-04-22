@@ -53,7 +53,9 @@ class Row extends React.Component {
     return (
       <tr>
         <td>
-          {this.props.keywordReply.keyword}
+          <a href={`keyword_replies/${this.props.keywordReply.id}`}>
+            {this.props.keywordReply.keyword}
+          </a>
         </td>
         <td>
           {this.props.keywordReply.reply_type}
