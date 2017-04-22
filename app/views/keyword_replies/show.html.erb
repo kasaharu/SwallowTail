@@ -1,5 +1,11 @@
 <h1>KeywordReplies#show</h1>
 
-<%= react_component('KeywordReplyTable', keywordReplyList: [@keyword_reply]) %>
+<script>
+  var keyword_replies = [<%= raw @keyword_reply.to_json %>]
+</script>
+
+<div id="keyword_reply_table"></div>
+<%= javascript_include_tag "webpack/keyword_reply_table" %>
+
 <%= link_to 'キーワード応答一覧', keyword_replies_path %>
 <%= link_to 'Destroy', @keyword_reply, method: :delete, data: { confirm: 'Are you sure?' } %>
