@@ -1,5 +1,6 @@
 module.exports = {
   entry: {
+    title_bar: './src/commons/title_bar.js',
     keyword_reply_table: './src/keyword_reply_table.js',
   },
   output: {
