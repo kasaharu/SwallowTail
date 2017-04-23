@@ -9,8 +9,13 @@
   </head>
 
   <body>
-    <div id="title_bar"></div>
-    <%= javascript_include_tag "webpack/title_bar" %>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to 'SwallowTail', root_path, class: 'navbar-brand'%>
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
