@@ -1,5 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { MuiThemeProvider } from 'material-ui/styles';
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn
+} from 'material-ui/Table';
 
 class KeywordReplyTable extends React.Component {
   propTypes () {
@@ -10,16 +19,22 @@ class KeywordReplyTable extends React.Component {
 
   render () {
     return (
-      <table>
-        <Header />
-        {this.props.keywordReplyList.map((keywordReply) => {
-          return (
-            <Row
-              keywordReply={keywordReply}
-            />
-          );
-        })}
-      </table>
+      <MuiThemeProvider>
+        <Table>
+          <TableHeader>
+            <Header />
+          </TableHeader>
+          <TableBody>
+            {this.props.keywordReplyList.map((keywordReply) => {
+              return (
+                <Row
+                  keywordReply={keywordReply}
+                />
+              );
+            })}
+          </TableBody>
+        </Table>
+      </MuiThemeProvider>
     );
   }
 }
@@ -27,17 +42,17 @@ class KeywordReplyTable extends React.Component {
 class Header extends React.Component {
   render () {
     return (
-      <tr>
-        <th>
+      <TableRow>
+        <TableHeaderColumn>
           キーワード
-        </th>
-        <th>
+        </TableHeaderColumn>
+        <TableHeaderColumn>
           応答タイプ
-        </th>
-        <th>
+        </TableHeaderColumn>
+        <TableHeaderColumn>
           応答メッセージ
-        </th>
-      </tr>
+        </TableHeaderColumn>
+      </TableRow>
     );
   }
 }
@@ -51,19 +66,19 @@ class Row extends React.Component {
 
   render () {
     return (
-      <tr>
-        <td>
+      <TableRow>
+        <TableRowColumn>
           <a href={`keyword_replies/${this.props.keywordReply.id}`}>
             {this.props.keywordReply.keyword}
           </a>
-        </td>
-        <td>
+        </TableRowColumn>
+        <TableRowColumn>
           {this.props.keywordReply.reply_type}
-        </td>
-        <td>
+        </TableRowColumn>
+        <TableRowColumn>
           {this.props.keywordReply.reply_word}
-        </td>
-      </tr>
+        </TableRowColumn>
+      </TableRow>
     );
   }
 }
