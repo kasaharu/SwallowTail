@@ -1,10 +1,22 @@
 <h1>キーワード応答メッセージ</h1>
 
-<script>
-  var keyword_replies = <%= raw @keyword_replies.to_json %>
-</script>
-
-<div id="keyword_reply_table"></div>
-<%= javascript_include_tag "webpack/keyword_reply_table" %>
+<table class="table table-hover">
+  <tr>
+    <th>キーワード</th>
+    <th>応答タイプ</th>
+    <th>応答メッセージ</th>
+    <th />
+  </tr>
+  <tbody>
+    <% @keyword_replies.each do |keyword_reply| %>
+      <tr>
+        <td><%= keyword_reply.keyword %></td>
+        <td><%= keyword_reply.reply_type %></td>
+        <td><%= keyword_reply.reply_word %></td>
+        <td><%= link_to 'Show', keyword_reply %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to '新規キーワード追加', new_keyword_reply_path %>
