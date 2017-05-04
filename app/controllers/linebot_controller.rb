@@ -29,6 +29,9 @@ class LinebotController < ApplicationController
           elsif event['message']['text'].include?("とは")
             target_word = event['message']['text'].sub(/とは/, "")
             message['text'] = search_word(target_word)
+          elsif event['message']['text'].include?(ENV["BOT_NAME"])
+            target_word = event['message']['text'].sub(ENV["BOT_NAME"], "")
+            message['text'] = talk_bot(target_word)
           else
             case event['message']['text']
             when '天気'
@@ -65,6 +68,16 @@ class LinebotController < ApplicationController
       return Annict.parse_msg(response.body)
     else
       return Annict.error_msg(response)
+    end
+  end
+
+  def talk_bot(message)
+    response = A3rt.talk(message)
+    body = JSON.parse(response.body)
+    if body["status"] == 0
+      return body["results"][0]["reply"]
+    else
+      return body["message"]
     end
   end
 
