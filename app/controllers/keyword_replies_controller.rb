@@ -11,12 +11,29 @@ class KeywordRepliesController < ApplicationController
     @keyword_reply = KeywordReply.new
   end
 
+  def edit
+    @keyword_reply = KeywordReply.find(params[:id])
+  end
+
   def create
     @keyword_reply = KeywordReply.new(keyword_reply_params)
 
     respond_to do |format|
       if @keyword_reply.save
         format.html { redirect_to @keyword_reply, notice: 'KeywordReply was successfully created.' }
+        format.json { render :show, status: :created, location: @keyword_reply }
+      else
+        format.html { render :new }
+        format.json { render json: @keyword_reply.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    @keyword_reply = KeywordReply.find(params[:id])
+    respond_to do |format|
+      if @keyword_reply.update(keyword_reply_params)
+        format.html { redirect_to @keyword_reply, notice: 'KeywordReply was successfully updated.' }
         format.json { render :show, status: :created, location: @keyword_reply }
       else
         format.html { render :new }
