@@ -1,4 +1,4 @@
-<h1>KeywordReplies#show</h1>
+<h1><%= @keyword_reply.keyword %> 詳細画面</h1>
 
 <table class="table table-hover">
   <tr>
@@ -14,7 +14,7 @@
       <td><%= @keyword_reply.reply_type %></td>
       <td><%= @keyword_reply.reply_word %></td>
       <td><%= link_to '編集', edit_keyword_reply_path(@keyword_reply) %></td>
-      <td><%= link_to 'Destroy', @keyword_reply, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to '削除', @keyword_reply, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   </tbody>
 </table>

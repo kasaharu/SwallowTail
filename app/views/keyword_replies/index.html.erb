@@ -1,4 +1,4 @@
-<h1>キーワード応答メッセージ</h1>
+<h1>キーワード応答メッセージ一覧</h1>
 
 <%= button_to '新規キーワード追加', new_keyword_reply_path, method: :get, class: 'btn btn-primary' %>
 
@@ -15,7 +15,7 @@
         <td><%= keyword_reply.keyword %></td>
         <td><%= keyword_reply.reply_type %></td>
         <td><%= keyword_reply.reply_word %></td>
-        <td><%= link_to 'Show', keyword_reply %></td>
+        <td><%= link_to '詳細', keyword_reply %></td>
       </tr>
     <% end %>
   </tbody>
