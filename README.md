@@ -20,4 +20,6 @@ $ heroku config:set SECRET_KEY_BASE=`rake secret`
 $ heroku config:set LINE_CHANNEL_TOKEN='xxx’
 $ heroku config:set LINE_CHANNEL_SECRET=’xxx’
 $ heroku config:set ANNICT_ACCESS_TOKEN='xxx’
+$ heroku config:set A3RT_API_KEY='xxx’
+$ heroku config:set BOT_NAME='xxx’
 ```
