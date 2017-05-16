@@ -40,7 +40,9 @@ class LinebotController < ApplicationController
               target_season = DateUtil.detect_target_season
               message['text'] = fetch_anime(target_season)
             when 'こんにちは'
-                message['text'] = greet(client, event['source']['userId'])
+              message['text'] = greet(client, event['source']['userId'])
+            when 'ポエム'
+              message['text'] = PoemUtil.select_poem
             else
               return
             end
