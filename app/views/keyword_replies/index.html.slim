@@ -1,0 +1,24 @@
+h1
+  | キーワード応答メッセージ一覧
+= button_to '新規キーワード追加', new_keyword_reply_path, method: :get, class: 'btn btn-primary'
+table.table.table-hover
+  tr
+    th
+      | キーワード
+    th
+      | 応答タイプ
+    th
+      | 応答メッセージ
+    th
+
+  tbody
+    - @keyword_replies.each do |keyword_reply|
+      tr
+        td
+          = keyword_reply.keyword
+        td
+          = keyword_reply.reply_type
+        td
+          = keyword_reply.reply_word
+        td
+          = link_to '詳細', keyword_reply
