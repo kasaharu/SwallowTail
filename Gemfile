@@ -14,6 +14,9 @@ gem 'devise'
 gem "twitter-bootstrap-rails"
 gem 'less-rails'
 
+# Slim
+gem 'slim-rails'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server

@@ -1,0 +1,19 @@
+h1
+  | 編集
+.form-horizontal[role="form"]
+  = form_for(@keyword_reply) do |form|
+    .form-group
+      = form.label :'キーワード', class: 'col-sm-3 control-label'
+      .col-sm-7
+        = form.text_field :keyword, class: 'form-control'
+    .form-group
+      = form.label :'応答タイプ', class: 'col-sm-3 control-label'
+      .col-sm-7
+        = form.select :reply_type, [['text', 'text']], class: 'form-control'
+    .form-group
+      = form.label :'応答メッセージ', class: 'col-sm-3 control-label'
+      .col-sm-7
+        = form.text_field :reply_word, class: 'form-control'
+    .form-group
+      .col-sm-offset-3.col-sm-10
+        = form.submit "編集", class: 'btn btn-primary'

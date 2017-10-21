@@ -1,0 +1,28 @@
+h1
+  = @keyword_reply.keyword
+  |  詳細画面
+table.table.table-hover
+  tr
+    th
+      | キーワード
+    th
+      | 応答タイプ
+    th
+      | 応答メッセージ
+    th
+
+    th
+
+  tbody
+    tr
+      td
+        = @keyword_reply.keyword
+      td
+        = @keyword_reply.reply_type
+      td
+        = @keyword_reply.reply_word
+      td
+        = link_to '編集', edit_keyword_reply_path(@keyword_reply)
+      td
+        = link_to '削除', @keyword_reply, method: :delete, data: { confirm: 'Are you sure?' }
+= link_to 'キーワード応答一覧', keyword_replies_path
