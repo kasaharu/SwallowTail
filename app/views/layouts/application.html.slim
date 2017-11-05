@@ -6,9 +6,11 @@ html
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
   body
-    nav.navbar.navbar-default
-      .container-fluid
+    nav.navbar.navbar-default.navbar-fixed-top
+      .container
         .navbar-header
           = link_to 'SwallowTail', root_path, class: 'navbar-brand'
-    = yield
+    .container
+      = yield
