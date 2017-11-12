@@ -212,14 +212,6 @@ Style/StringLiterals:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiteralsInInterpolation:
-  Exclude:
-    - 'app/models/annict.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleForMultiline, SupportedStylesForMultiline.
 # SupportedStylesForMultiline: comma, consistent_comma, no_comma
 Style/TrailingCommaInLiteral:
