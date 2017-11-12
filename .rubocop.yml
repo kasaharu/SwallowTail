@@ -1,0 +1,11 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - 'Gemfile'
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
