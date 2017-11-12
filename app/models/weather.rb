@@ -12,7 +12,7 @@ class Weather < ApplicationRecord
       temperatureInfo += "#{forecast['date']}(#{forecast['dateLabel']})"
       temperatureInfo += "    天気 : #{forecast['telop']}\n"
       temperatureInfo += "    気温 : 最高気温 #{forecast['temperature']['max']['celsius']}℃" if forecast['temperature']['max']
-      temperatureInfo += " / "   + " 最低気温 #{forecast['temperature']['min']['celsius']}℃" if forecast['temperature']['min']
+      temperatureInfo += ' / '   + " 最低気温 #{forecast['temperature']['min']['celsius']}℃" if forecast['temperature']['min']
       temperatureInfo += "\n"
     end
     description = result['description']['text'].split((/\s*【東京地方】\s*/))

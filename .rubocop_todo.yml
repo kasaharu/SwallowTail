@@ -197,19 +197,6 @@ Style/RedundantSelf:
   Exclude:
     - 'lib/utils/date_util.rb'
 
-# Offense count: 19
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, ConsistentQuotesInMultiline.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiterals:
-  Exclude:
-    - 'app/controllers/keyword_replies_controller.rb'
-    - 'app/controllers/linebot_controller.rb'
-    - 'app/models/a3rt.rb'
-    - 'app/models/weather.rb'
-    - 'test/controllers/home_controller_test.rb'
-    - 'test/controllers/keyword_replies_controller_test.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleForMultiline, SupportedStylesForMultiline.
