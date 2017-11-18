@@ -23,3 +23,10 @@ $ heroku config:set ANNICT_ACCESS_TOKEN='xxx’
 $ heroku config:set A3RT_API_KEY='xxx’
 $ heroku config:set BOT_NAME='xxx’
 ```
+
+## Lint の実行
+
+```
+// Slim-Lint の実行
+$ bundle exec slim-lint app/views/
+```
