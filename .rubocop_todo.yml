@@ -92,14 +92,6 @@ Style/ClassAndModuleChildren:
 Style/Documentation:
   Enabled: false
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: compact, expanded
-Style/EmptyMethod:
-  Exclude:
-    - 'app/controllers/home_controller.rb'
-
 # Offense count: 3
 # Configuration parameters: MinBodyLength.
 Style/GuardClause:
