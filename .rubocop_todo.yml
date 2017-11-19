@@ -22,14 +22,6 @@ Layout/EmptyLinesAroundClassBody:
     - 'test/controllers/home_controller_test.rb'
     - 'test/controllers/keyword_replies_controller_test.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: SupportedStyles, EnforcedStyleForEmptyBraces, SupportedStylesForEmptyBraces.
-# SupportedStyles: space, no_space, compact
-# SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceInsideHashLiteralBraces:
-  EnforcedStyle: no_space
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
