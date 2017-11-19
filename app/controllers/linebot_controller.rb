@@ -88,7 +88,7 @@ class LinebotController < ApplicationController
     response = NetUtil.http_request(uri_path, false)
     if response.code == '200'
       content = JSON.parse(response.body)
-      result  = "【#{ content[0]['title']}】\n"
+      result  = "【#{content[0]['title']}】\n"
       result += content[0]['body']
     else
       puts 'ERROR'

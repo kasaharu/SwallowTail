@@ -13,14 +13,6 @@ Layout/EmptyLinesAroundAccessModifier:
     - 'app/controllers/keyword_replies_controller.rb'
 
 # Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: space, no_space
-Layout/SpaceInsideStringInterpolation:
-  Exclude:
-    - 'app/controllers/linebot_controller.rb'
-
-# Offense count: 1
 Lint/NonLocalExitFromIterator:
   Exclude:
     - 'app/controllers/linebot_controller.rb'
