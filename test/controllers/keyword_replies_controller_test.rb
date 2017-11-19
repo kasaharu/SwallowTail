@@ -5,5 +5,4 @@ class KeywordRepliesControllerTest < ActionDispatch::IntegrationTest
     get keyword_replies_index_url
     assert_response :success
   end
-
 end

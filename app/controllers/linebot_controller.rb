@@ -106,5 +106,4 @@ class LinebotController < ApplicationController
       return "#{resProfile.code} #{resProfile.body}"
     end
   end
-
 end
