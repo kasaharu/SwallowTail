@@ -100,14 +100,6 @@ Style/GuardClause:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, UseHashRocketsWithSymbolValues, PreferHashRocketsForNonAlnumEndingSymbols.
-# SupportedStyles: ruby19, hash_rockets, no_mixed_keys, ruby19_no_mixed_keys
-Style/HashSyntax:
-  Exclude:
-    - 'app/controllers/linebot_controller.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 Style/MutableConstant:
   Exclude:
     - 'lib/utils/poem_util.rb'

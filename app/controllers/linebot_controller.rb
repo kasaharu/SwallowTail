@@ -4,7 +4,7 @@ require 'uri'
 require 'rexml/document'
 
 class LinebotController < ApplicationController
-  protect_from_forgery :except => ['callback']
+  protect_from_forgery except: ['callback']
 
   def callback
     message = {
