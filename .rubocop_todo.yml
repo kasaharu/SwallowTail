@@ -107,12 +107,6 @@ Style/NumericPredicate:
     - 'spec/**/*'
     - 'app/controllers/linebot_controller.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/RedundantParentheses:
-  Exclude:
-    - 'app/models/weather.rb'
-
 # Offense count: 9
 # Cop supports --auto-correct.
 # Configuration parameters: AllowMultipleReturnValues.
