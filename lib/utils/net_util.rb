@@ -9,7 +9,7 @@ class NetUtil
 
     http.use_ssl = true if use_ssl
 
-    return http.start do
+    http.start do
       http.get(uri.request_uri)
     end
   end

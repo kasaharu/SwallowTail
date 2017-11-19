@@ -107,17 +107,6 @@ Style/NumericPredicate:
     - 'spec/**/*'
     - 'app/controllers/linebot_controller.rb'
 
-# Offense count: 9
-# Cop supports --auto-correct.
-# Configuration parameters: AllowMultipleReturnValues.
-Style/RedundantReturn:
-  Exclude:
-    - 'app/models/annict.rb'
-    - 'app/models/keyword_reply.rb'
-    - 'app/models/weather.rb'
-    - 'lib/utils/date_util.rb'
-    - 'lib/utils/net_util.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/RedundantSelf:

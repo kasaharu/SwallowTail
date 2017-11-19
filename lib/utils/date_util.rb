@@ -2,7 +2,7 @@ class DateUtil
   def self.detect_target_season
     this_year   = Date.today.year
     this_season = self.get_this_season
-    return "#{this_year}-#{this_season}"
+    "#{this_year}-#{this_season}"
   end
 
   def self.get_this_season
