@@ -100,12 +100,6 @@ Style/GuardClause:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Style/MutableConstant:
-  Exclude:
-    - 'lib/utils/poem_util.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, EnforcedStyle, SupportedStyles.
 # SupportedStyles: predicate, comparison
 Style/NumericPredicate:

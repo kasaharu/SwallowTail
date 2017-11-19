@@ -78,7 +78,7 @@ class PoemUtil
     '72: 言葉に姿があったなら　暗闇に立つきみに届きはしないだろう',
     '73: 牙より滴る火は消えず　刃立つ野を焼き払い　友の姿を炙り出す',
     '74: 我等は　姿無くとも　歩みは止めず',
-  ]
+  ].freeze
 
   def self.select_poem
     random_number = rand(TOTAL_COUNT) + 1
