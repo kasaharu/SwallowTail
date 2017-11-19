@@ -4,17 +4,17 @@ require 'uri'
 require 'rexml/document'
 
 class LinebotController < ApplicationController
-  protect_from_forgery :except => ["callback"]
+  protect_from_forgery except: ['callback']
 
   def callback
     message = {
       type: 'text',
       text: 'Hello, This is LINE bot'
     }
-    client = Line::Bot::Client.new { |config|
-      config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
-      config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
-    }
+    client = Line::Bot::Client.new do |config|
+      config.channel_secret = ENV['LINE_CHANNEL_SECRET']
+      config.channel_token = ENV['LINE_CHANNEL_TOKEN']
+    end
 
     puts events = client.parse_events_from(request.body.read)
 
@@ -26,11 +26,11 @@ class LinebotController < ApplicationController
           keyword_reply = KeywordReply.fetch(event['message']['text'])
           if !keyword_reply.nil?
             message['text'] = keyword_reply.reply_word
-          elsif event['message']['text'].include?("とは")
-            target_word = event['message']['text'].sub(/とは/, "")
+          elsif event['message']['text'].include?('とは')
+            target_word = event['message']['text'].sub(/とは/, '')
             message['text'] = search_word(target_word)
-          elsif event['message']['text'].include?(ENV["BOT_NAME"])
-            target_word = event['message']['text'].sub(ENV["BOT_NAME"], "")
+          elsif event['message']['text'].include?(ENV['BOT_NAME'])
+            target_word = event['message']['text'].sub(ENV['BOT_NAME'], '')
             message['text'] = talk_bot(target_word)
           else
             case event['message']['text']
@@ -76,10 +76,10 @@ class LinebotController < ApplicationController
   def talk_bot(message)
     response = A3rt.talk(message)
     body = JSON.parse(response.body)
-    if body["status"] == 0
-      return body["results"][0]["reply"]
+    if body['status'] == 0
+      return body['results'][0]['reply']
     else
-      return body["message"]
+      return body['message']
     end
   end
 
@@ -88,7 +88,7 @@ class LinebotController < ApplicationController
     response = NetUtil.http_request(uri_path, false)
     if response.code == '200'
       content = JSON.parse(response.body)
-      result  = "【#{ content[0]['title']}】\n"
+      result  = "【#{content[0]['title']}】\n"
       result += content[0]['body']
     else
       puts 'ERROR'
@@ -106,5 +106,4 @@ class LinebotController < ApplicationController
       return "#{resProfile.code} #{resProfile.body}"
     end
   end
-
 end

@@ -9,9 +9,9 @@ class NetUtil
 
     http.use_ssl = true if use_ssl
 
-    return http.start {
+    http.start do
       http.get(uri.request_uri)
-    }
+    end
   end
 
   def self.post_request(uri_path, query_string)
