@@ -8,7 +8,7 @@
 ```
 $ git clone git@github.com:kasaharu/SwallowTail.git
 $ cd SwallowTail/
-$ bundle install
+$ bundle install --path vendor/bundler
 $ rake assets:precompile
 $ rails s
 ```
