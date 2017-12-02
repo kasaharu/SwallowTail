@@ -8,7 +8,7 @@
 ```
 $ git clone git@github.com:kasaharu/SwallowTail.git
 $ cd SwallowTail/
-$ bundle install
+$ bundle install --path vendor/bundler
 $ rake assets:precompile
 $ rails s
 ```
@@ -22,6 +22,8 @@ $ heroku config:set LINE_CHANNEL_SECRET=’xxx’
 $ heroku config:set ANNICT_ACCESS_TOKEN='xxx’
 $ heroku config:set A3RT_API_KEY='xxx’
 $ heroku config:set BOT_NAME='xxx’
+$ heroku config:set BASIC_AUTH_USER='xxx'
+$ heroku config:set BASIC_AUTH_PASS='xxx'
 ```
 
 ## Lint の実行
