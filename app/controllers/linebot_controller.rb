@@ -76,7 +76,7 @@ class LinebotController < ApplicationController
   def talk_bot(message)
     response = A3rt.talk(message)
     body = JSON.parse(response.body)
-    if body['status'] == 0
+    if body['status'].zero?
       return body['results'][0]['reply']
     else
       return body['message']

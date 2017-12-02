@@ -100,15 +100,6 @@ Style/GuardClause:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-# Configuration parameters: AutoCorrect, EnforcedStyle, SupportedStyles.
-# SupportedStyles: predicate, comparison
-Style/NumericPredicate:
-  Exclude:
-    - 'spec/**/*'
-    - 'app/controllers/linebot_controller.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 Style/RedundantSelf:
   Exclude:
     - 'lib/utils/date_util.rb'
